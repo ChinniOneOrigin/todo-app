@@ -2,9 +2,8 @@ const express= require('express');
 const mongoose= require('mongoose');
 const app=express();
 
-const url='mongodb://localhost:27017/'
-mongoose.connect(url, {useNewUrlParser:true})
-
+const url='mongodb://localhost:27017/users'
+mongoose.connect(url, {useNewUrlParser:true});
 const con =mongoose.connection;
 
 con.on('open',() => {

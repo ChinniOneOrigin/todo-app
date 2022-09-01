@@ -19,6 +19,7 @@ router.get("/:id", async (req, res) => {
     }
   });
 router.post("/", async (req, res) => {
+  console.log(req.params);
   const alien = new Alien({
     name: req.body.name,
     tech: req.body.tech,
@@ -28,6 +29,8 @@ router.post("/", async (req, res) => {
     const a1= await alien.save()
     res.json(a1)
   } catch (err) {
+    console.log(req.params);
+    res.send(err)
     res.send("Error");
   }
 });
