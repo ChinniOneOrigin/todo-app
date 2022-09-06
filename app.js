@@ -3,7 +3,8 @@ const mongoose= require('mongoose');
 const app=express();
 
 const url='mongodb://localhost:27017/users'
-mongoose.connect(url, {useNewUrlParser:true});
+mongoose.connect(url, {useNewUrlParser:true})
+
 const con =mongoose.connection;
 
 con.on('open',() => {
@@ -16,4 +17,4 @@ app.use('/aliens',alienRouter);
 
 app.listen(9000,()=>{
     console.log('listening on port 9000...');
-})
+}) 

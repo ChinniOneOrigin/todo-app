@@ -19,18 +19,15 @@ router.get("/:id", async (req, res) => {
     }
   });
 router.post("/", async (req, res) => {
-  console.log(req.params);
   const alien = new Alien({
-    name: req.body.name,
-    tech: req.body.tech,
-    sub: req.body.sub,
+    // name: req.body.name,
+    task: req.body.task,
+    completed: req.body.completed,
   });
   try {
     const a1= await alien.save()
     res.json(a1)
   } catch (err) {
-    console.log(req.params);
-    res.send(err)
     res.send("Error");
   }
 });
@@ -38,7 +35,9 @@ router.post("/", async (req, res) => {
 router.patch("/:id",async(req,res)=>{
     try{
         const alien= await Alien.findById(req.params.id)
-            alien.sub= req.body.sub
+          // alien.name= req.body.name
+            alien.task= req.body.task
+            alien.completed= req.body.completed
             const a1= await alien.save()
             res.json(a1)
     }catch(err)
@@ -56,7 +55,4 @@ router.delete("/:id",async(req,res)=>{
         res.send('Err'+err)
     }
 })
-
-
-
 module.exports = router;
