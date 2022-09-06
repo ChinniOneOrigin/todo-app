@@ -1,5 +1,5 @@
 $(() => {
-    $('input[type="button"]').on('click', function(e) {
+    $('input').on('keypress', function(e) {
       if (e.keyCode == 13) {
         const newTask = $(this).val();
         if (newTask) {
